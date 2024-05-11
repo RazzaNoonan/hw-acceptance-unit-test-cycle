@@ -1,0 +1,792 @@
+  [1m[36m (50.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (50.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /home/codio/workspace/hw-acceptance-unit-test-cycle/db/migrate/20111119180638_create_movies.rb:10)
+  [1m[35m (0.3ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "rating" varchar, "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20111119180638"]]
+  [1m[35m (56.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (59.9ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "rating" varchar, "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (57.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (57.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (62.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111119180638')
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDirectorToMovies (20240509170131)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "movies" ADD "director" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20240509170131"]]
+  [1m[36m (59.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:02:56 +0000
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:02:56 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 278ms (Views: 259.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:02:56 +0000
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:02:56 +0000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:02:56 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:02:56 +0000
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:03:06 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_flash.erb (0.9ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:04:11 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (55.5ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "rating" varchar, "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime, "director" varchar) [0m
+  [1m[35m (58.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (59.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (59.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20240509170131')
+  [1m[36m (61.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:19:52 +0000
+
+SyntaxError (/home/codio/workspace/hw-acceptance-unit-test-cycle/app/controllers/movies_controller.rb:50: syntax error, unexpected end-of-input, expecting end):
+  app/controllers/movies_controller.rb:50: syntax error, unexpected end-of-input, expecting end
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.2ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.7ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:20:13 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (wrong number of arguments (given 4, expected 2..3)):
+     6:   <%= label :movie, :rating, 'Rating', :class => 'col-form-label'  %>
+     7:   <%= select :movie, :rating, ['G','PG','PG-13','R','NC-17'], {}, {:class => 'form-control col-1'} %>
+     8:   <%= label :movie, :director, 'Director', :class => 'col-form-label'  %>
+     9:   <%= text_field :movie, :director, {}, :class => 'form-control' %>
+    10:   <br/>
+    11:   <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
+    12:   <%= link_to 'Cancel', movies_path, :class => 'btn btn-secondary' %>
+  app/views/movies/new.html.erb:9:in `block in _app_views_movies_new_html_erb__3031347005517261607_70146557359280'
+  app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb__3031347005517261607_70146557359280'
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.1ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:21:50 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:31:13 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:31:17 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 5.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:31:19 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:31:30 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LqJ+gdcQt5MRgaqGh4N9nbbcO1YG6YuVmlwOgdaoFrFaaSjSLLYZLiyseeDSGwnI3cFhhfKbYaS83d3R97TkTA==", "movie"=>{"title"=>"b", "rating"=>"G", "director"=>"helo"}, "commit"=>"Save Changes"}
+Unpermitted parameter: director
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 6ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordInvalid (Validation failed: Director can't be blank):
+  app/controllers/movies_controller.rb:18:in `create'
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (10.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:36:01 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:36:04 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:36:05 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Aladdin"], ["rating", "G"], ["release_date", "1992-11-25 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.170858"], ["updated_at", "2024-05-09 17:39:27.170858"]]
+  [1m[35m (56.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "The Terminator"], ["rating", "R"], ["release_date", "1984-10-26 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.229232"], ["updated_at", "2024-05-09 17:39:27.229232"]]
+  [1m[36m (51.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "When Harry Met Sally"], ["rating", "R"], ["release_date", "1989-07-21 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.282230"], ["updated_at", "2024-05-09 17:39:27.282230"]]
+  [1m[35m (52.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "The Help"], ["rating", "PG-13"], ["release_date", "2011-08-10 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.335735"], ["updated_at", "2024-05-09 17:39:27.335735"]]
+  [1m[36m (52.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Chocolat"], ["rating", "PG-13"], ["release_date", "2001-01-05 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.389086"], ["updated_at", "2024-05-09 17:39:27.389086"]]
+  [1m[35m (60.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Amelie"], ["rating", "R"], ["release_date", "2001-04-25 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.450740"], ["updated_at", "2024-05-09 17:39:27.450740"]]
+  [1m[36m (54.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "2001: A Space Odyssey"], ["rating", "G"], ["release_date", "1968-04-06 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.506615"], ["updated_at", "2024-05-09 17:39:27.506615"]]
+  [1m[35m (55.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "The Incredibles"], ["rating", "PG"], ["release_date", "2004-11-05 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.562794"], ["updated_at", "2024-05-09 17:39:27.562794"]]
+  [1m[36m (54.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Raiders of the Lost Ark"], ["rating", "PG"], ["release_date", "1981-06-12 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.618663"], ["updated_at", "2024-05-09 17:39:27.618663"]]
+  [1m[35m (60.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Chicken Run"], ["rating", "G"], ["release_date", "2000-06-21 00:00:00.000000"], ["created_at", "2024-05-09 17:39:27.680332"], ["updated_at", "2024-05-09 17:39:27.680332"]]
+  [1m[36m (54.8ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:39:30 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:39:33 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:39:42 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M8UgoEaKEyHpYrISbLOU+8k7UoU001l0A6ZsGrTI6/NHDnbzvSy9nNRPYXQ5K+CuoiYIVsChs0UlJ79KldQZDg==", "movie"=>{"title"=>"Movie", "rating"=>"G", "director"=>"Ronan"}, "commit"=>"Save Changes"}
+Unpermitted parameter: director
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("title", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Movie"], ["rating", "G"], ["created_at", "2024-05-09 17:39:42.706494"], ["updated_at", "2024-05-09 17:39:42.706494"]]
+  [1m[36m (56.1ms)[0m  [1mcommit transaction[0m
+Redirected to https://modernplato-kayakjustice-3000.codio-box.uk/movies
+Completed 302 Found in 59ms (ActiveRecord: 56.5ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:39:42 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/11" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:39:50 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered movies/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+     8:   </li>
+     9:   <li>
+    10:     Released on:
+    11:     <%= @movie.release_date.strftime("%B %d, %Y") %>
+    12:   </li>
+    13:   <li>
+    14:     Director:
+  app/views/movies/show.html.erb:11:in `_app_views_movies_show_html_erb__178832416058690274_70146557470400'
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.7ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:42:38 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:42:42 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:43:02 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/11" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:43:04 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered movies/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+     8:   </li>
+     9:   <li>
+    10:     Released on:
+    11:     <%= @movie.release_date.strftime("%B %d, %Y") %>
+    12:   </li>
+    13:   <li>
+    14:     Director:
+  app/views/movies/show.html.erb:11:in `_app_views_movies_show_html_erb__178832416058690274_70146557470400'
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.8ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:43:17 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:43:33 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B5vcIDheZRmU33M3c437aYzpOMqP8ob/HCMLWXxEJEtzUIpzw/jLpKnyoFEmFY885/RiGXuAbM46otgJXVjWtg==", "movie"=>{"title"=>"Movie1", "rating"=>"PG-13", "release_date(1i)"=>"2024", "release_date(2i)"=>"5", "release_date(3i)"=>"9", "director"=>"Ronan"}, "commit"=>"Save Changes"}
+Unpermitted parameter: director
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Movie1"], ["rating", "PG-13"], ["release_date", "2024-05-09 00:00:00.000000"], ["created_at", "2024-05-09 17:43:33.848039"], ["updated_at", "2024-05-09 17:43:33.848039"]]
+  [1m[36m (59.5ms)[0m  [1mcommit transaction[0m
+Redirected to https://modernplato-kayakjustice-3000.codio-box.uk/movies
+Completed 302 Found in 62ms (ActiveRecord: 59.9ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:43:33 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:43:36 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:44:55 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/1" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:44:56 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/1/edit" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:44:58 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movies/edit.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (wrong number of arguments (given 4, expected 2..3)):
+     7:   <%= label :movie, :release_date, 'Released On', :class => 'col-form-label'  %>
+     8:   <%= date_select :movie, :release_date, {}, :class => 'form-control col-2 d-inline' %>
+     9:   <%= label :movie, :director, 'Director', :class => 'col-form-label'  %>
+    10:   <%= text_field :movie, :director, {}, :class => 'form-control' %>
+    11:   <br/>
+    12:   <%= submit_tag 'Update Movie Info', :class => 'btn btn-primary' %>
+    13:   <%= link_to 'Cancel', movies_path, :class => 'btn btn-secondary' %>
+  app/views/movies/edit.html.erb:10:in `block in _app_views_movies_edit_html_erb___1875377145447536828_70146415585380'
+  app/views/movies/edit.html.erb:2:in `_app_views_movies_edit_html_erb___1875377145447536828_70146415585380'
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.7ms)
+
+
+Started GET "/movies/1" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:45:07 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/1/edit" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:45:07 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movies/edit.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (wrong number of arguments (given 4, expected 2..3)):
+     7:   <%= label :movie, :release_date, 'Released On', :class => 'col-form-label'  %>
+     8:   <%= date_select :movie, :release_date, {}, :class => 'form-control col-2 d-inline' %>
+     9:   <%= label :movie, :director, 'Director', :class => 'col-form-label'  %>
+    10:   <%= text_field :movie, :director, {}, :class => 'form-control' %>
+    11:   <br/>
+    12:   <%= submit_tag 'Update Movie Info', :class => 'btn btn-primary' %>
+    13:   <%= link_to 'Cancel', movies_path, :class => 'btn btn-secondary' %>
+  app/views/movies/edit.html.erb:10:in `block in _app_views_movies_edit_html_erb___1875377145447536828_70146415585380'
+  app/views/movies/edit.html.erb:2:in `_app_views_movies_edit_html_erb___1875377145447536828_70146415585380'
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.8ms)
+
+
+Started GET "/movies/1/edit" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:45:25 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/edit.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 17:46:09 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 19:54:07 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 173ms (Views: 158.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-09 19:59:39 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 08:45:21 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (1.8ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 169ms (Views: 152.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 08:45:25 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 6.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/11" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 08:45:30 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered movies/show.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `strftime' for nil:NilClass):
+     8:   </li>
+     9:   <li>
+    10:     Released on:
+    11:     <%= @movie.release_date.strftime("%B %d, %Y") %>
+    12:   </li>
+    13:   <li>
+    14:     Director:
+  app/views/movies/show.html.erb:11:in `_app_views_movies_show_html_erb__3335247979743388350_70078915991080'
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.2ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.9ms)
+
+
+Started GET "/movies/10" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 09:13:37 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 10]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.9ms)
+
+SyntaxError (/home/codio/workspace/hw-acceptance-unit-test-cycle/app/views/movies/show.html.erb:37: syntax error, unexpected ensure, expecting end
+          ensure
+          ^~~~~~
+/home/codio/workspace/hw-acceptance-unit-test-cycle/app/views/movies/show.html.erb:39: syntax error, unexpected end-of-input, expecting end):
+  app/views/movies/show.html.erb:37: syntax error, unexpected ensure, expecting end
+  app/views/movies/show.html.erb:39: syntax error, unexpected end-of-input, expecting end
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (11.0ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 09:13:43 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+SyntaxError (/home/codio/workspace/hw-acceptance-unit-test-cycle/app/views/movies/show.html.erb:37: syntax error, unexpected ensure, expecting end
+          ensure
+          ^~~~~~
+/home/codio/workspace/hw-acceptance-unit-test-cycle/app/views/movies/show.html.erb:39: syntax error, unexpected end-of-input, expecting end):
+  app/views/movies/show.html.erb:37: syntax error, unexpected ensure, expecting end
+  app/views/movies/show.html.erb:39: syntax error, unexpected end-of-input, expecting end
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (10.8ms)
+
+
+Started GET "/movies/12" for 86.44.211.180 at 2024-05-10 09:16:52 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 09:19:56 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 09:20:00 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 10:31:40 +0000
+
+SyntaxError (/home/codio/workspace/hw-acceptance-unit-test-cycle/config/routes.rb:8: syntax error, unexpected end-of-input, expecting end):
+  config/routes.rb:8: syntax error, unexpected end-of-input, expecting end
+
+
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/codio/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.0ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 10:31:50 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 160ms (Views: 136.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movies/12" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 10:35:43 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 10:35:47 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/1" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 13:06:08 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 201ms (Views: 170.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movies/new" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:22:42 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 184ms (Views: 184.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:22:59 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aG6l7adFYl2AYo2Ye11jYyV6WD9gvCXWuLjYZxIkfOAcpfO+XOPM4L1PXv4uxRc2TmcC7JTOz+eeOQs3MziOHQ==", "movie"=>{"title"=>"Alien", "rating"=>"G", "release_date(1i)"=>"2024", "release_date(2i)"=>"5", "release_date(3i)"=>"10", "director"=>""}, "commit"=>"Save Changes"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "movies" ("title", "rating", "director", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Alien"], ["rating", "G"], ["director", ""], ["release_date", "2024-05-10 00:00:00.000000"], ["created_at", "2024-05-10 19:22:59.806813"], ["updated_at", "2024-05-10 19:22:59.806813"]]
+  [1m[36m (55.1ms)[0m  [1mcommit transaction[0m
+Redirected to https://modernplato-kayakjustice-3000.codio-box.uk/movies
+Completed 302 Found in 79ms (ActiveRecord: 56.7ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:22:59 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:23:02 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:24:17 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:24:20 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:24:25 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:24:30 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 6.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:904:342d:efa5:656b at 2024-05-10 19:24:32 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 24ms (Views: 23.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 2001:bb6:22cf:1200:316f:7b32:bb51:2940 at 2024-05-11 17:38:05 +0000
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:316f:7b32:bb51:2940 at 2024-05-11 17:38:05 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 193ms (Views: 177.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:316f:7b32:bb51:2940 at 2024-05-11 17:38:09 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 5.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:27:20 +0000
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:27:20 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.9ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 197ms (Views: 182.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:27:21 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:27:21 +0000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:27:21 +0000
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:27:21 +0000
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:27:23 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:36:16 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 182ms (Views: 151.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:42:17 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:42:19 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:42:20 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/13" for 2001:bb6:22cf:1200:9023:b667:5c44:f1f9 at 2024-05-11 18:42:22 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered movies/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms)

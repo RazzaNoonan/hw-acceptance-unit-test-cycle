@@ -28,7 +28,11 @@ Scenario: find movie with same director
 
 Scenario: can't find similar movies if we don't know director (sad path)
   Given I am on the details page for "Alien"
-  Then  I should not see "Ridley Scott"
-  When  I follow "Find Movies With Same Director"
-  Then  I should be on the home page
-  And   I should see "'Alien' has no director info"
+  Then I should not see "Ridley Scott"
+  And I should see "'Alien' has no director"
+  And I should not see the link "Find Movies With Same Director"
+  When I am on the home page
+  Then I should be on the home page
+  
+
+
